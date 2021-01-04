@@ -1,0 +1,61 @@
+{
+    "Nombre de receta" : "Arbol de Navidad de hojaldre y chocolate", 
+
+    "Dificultad" : "Facil",
+    "Tiempo_preparacion" : "30 min",
+    "Reciones" : "6 pers",
+
+    "Precio": "0.3 €/persona",
+    "Calorias_por_100g" : "345kcal",
+    "Ingredientes": [
+        {
+            "Ingrediente": "hojaldre", 
+            "Cantidad" : "2 laminas"
+        },
+        {
+            "Ingrediente": "crema de cacao", 
+            "Cantidad" : "200 g"
+        },
+        {
+            "Ingrediente": "avellanas", 
+            "Cantidad" : "50 g"
+        },
+        {
+            "Ingrediente": "huevo", 
+            "Cantidad" : "1"
+        },
+        {
+            "Ingrediente": "azucar glase", 
+            "Cantidad" : "decorar (opcional)"
+        }
+    ],
+
+    "Preparacion" : [
+        {
+            "Nombre" : "Preparacion del hojaldre y la crema de chocolate",
+            "Pasos" : [
+                "Extendemos una de las laminas de hojaldre sobre su propio papel encima de la superficie de trabajo. Atemperamos un poco la crema de chocolate dandole un golpe de calor en el microondas.",
+                "Con 1 hoja de hojaldre en una superficie de trabajo limpia, sobre y la pincelamos con la crema de chocolate, en este caso Nutella, pero puede ser con Nocilla o la marca que mas os guste.",
+                "Se extendera mejor si la atemperamos un 10 segundos sera suficiente, que no buscamos que se derrita, solo que se vuelva maleable. Extendemos la crema de chocolate atemperada sobre toda la superficie de la masa de hojaldre, en una capa fina. Mejor no emocionarse con la cantidad para que no se salga el relleno al formar las ramas del arbol.",
+                "Colocamos la segunda lamina de hojaldre encima, bien encajada, procurando acertar a la primera. El chocolate hace de pegamento instantaneo y si no la cuadramos bien ya no podremos moverla."
+            ]
+        },
+        {
+            "Nombre" : "Dar forma a nuestro arbol dulce navideno",
+            "Pasos" : [
+                "Con el dorso de un cuchillo marcamos la forma de un arbol de Navidad sobre el hojaldre, sin apretar. Si no nos gusta como queda, repetimos el dibujo, no se veran las marcas una vez finalizado el trabajo.",
+                "Recortamos con ayuda de un cuchillo afilado y retiramos el sobrante. Este ultimo lo podemos aprovechar cortando formas diversas y horneando al tiempo que el arbol.",
+                "Una de las formas que necesitamos cortar es una estrella con la que coronar la cima del arbol, que reservamos para mas adelante.",
+                "Hacemos cortes laterales a derecha e izquierda del hojaldre, sin llegar al centro, dejando un espacio central de arriba a abajo que simulara el tronco. Estas seran las ramas. Retorcemos cada una de las tiras o ramas sobre si mismas, como si fueran tirabuzones. A las mas largas (las de la parte inferior) les damos varias vueltas, a las mas cortas (las de arriba) solo admiten una o media.",
+                "Una vez formado el arbol, batimos el huevo y pincelamos con el toda la superficie. Suavemente y sin presionar para que no arrastrar el relleno sobre el hojaldre. Colocamos la estrella que tenemos reservada en la parte superior, presionamos para que se adhiera y pincelamos con huevo.",
+                "Machacamos las avellanas en un mortero o las picamos a cuchillo. Cubrimos con ellas el tronco central del arbol. Precalentamos el horno a 200º C, que alcance la temperatura o 10 minutos antes de introducir el arbol al horno."
+            ]
+        },
+        {
+            "Nombre" : "Horneado del arbol dulce navideno",
+            "Pasos" : [
+                "Transferimos el arbol a una bandeja de horno y cocemos en horno pre calentado a 200º C, con calor tradicional arriba y abajo, durante 12-14 minutos o hasta que comience a tomar color.",
+                "Una vez listo dejamos atemperar antes de servir. Podemos espolvorear un poco de azucar glase en los extremos de las ramas para darle un toque mas invernal y navideno, pero esto es totalmente opcional."
+            ]
+        }
+    ]
