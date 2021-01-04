@@ -1,10 +1,11 @@
 {
+    "id": "panettone",
     "Nombre_receta": "Panettone o pan dulce de Navidad",
-    "Dificultad": "Dificil",
-    "Tiempo_preparacion": "480 min",
-    "Raciones": "10 pers",
-    "Precio": "0.5 €/persona",
-    "Calorias_por_100g": "305kcal",
+    "Dificultad": "dificil",
+    "Tiempo_preparacion": 480,
+    "Raciones": 10,
+    "Precio": 0.5,
+    "Calorias_por_100g": 305,
     "Ingredientes": [
         {
             "Ingrediente": "leche entera",

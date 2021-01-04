@@ -1,12 +1,13 @@
 {
+    "id": "arbol",
     "Nombre_receta" : "Arbol de Navidad de hojaldre y chocolate", 
 
-    "Dificultad" : "Facil",
-    "Tiempo_preparacion" : "30 min",
-    "Reciones" : "6 pers",
+    "Dificultad" : "facil",
+    "Tiempo_preparacion" : 30,
+    "Reciones" : 6,
 
-    "Precio": "0.3 €/persona",
-    "Calorias_por_100g" : "345kcal",
+    "Precio": 0.3,
+    "Calorias_por_100g" : 345,
     "Ingredientes": [
         {
             "Ingrediente": "hojaldre", 
