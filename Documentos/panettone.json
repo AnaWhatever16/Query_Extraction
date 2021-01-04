@@ -1,1 +1,91 @@
-{"Nombre_receta": "Panettone o pan dulce de Navidad", "Dificultad": "Dificil", "Tiempo_preparacion": "480 min", "Raciones" : "10 pers", "Precio": "0.5 €/persona", "Calorias_por_100g": "305kcal",  "Ingredientes": [{"Ingrediente": "leche entera","Cantidad":"100 g."},{"Ingrediente":"levadura fresca de panadero","Cantidad":"30 g."},{"Ingrediente": "huevos M","Cantidad":"3"},{"Ingrediente":"harina de fuerza o harina 0000 (en Argentina)","Cantidad":"550 g."},{"Ingrediente": "azúcar","Cantidad":"120 g."},{"Ingrediente": "sal", "Cantidad":"media cdita. (3 gramos)"},{"Ingrediente":"mantequilla en pomada","Cantidad": "160 g."},{"Ingrediente": "agua",Cantidad:"80 ml."},{"Ingrediente":"limón y naranja","Cantidad":"1 pieza de fruta ralladura"},{"Ingrediente":"frutas escarchadas","Cantidad":"100 g."},{"Ingrediente": "uvas pasas", "Cantidad":"75 g."},{"Ingrediente": "Molde especial para panettone", "Cantidad":"1 molde"}], "Preparacion": [{"nombre":"Preparación del prefermento o Poolish para la masa" , "pasos": ["Empezamos con el prefermento o Poolish. En un bol pequeño mezclamos la leche templada, no caliente, con la levadura y dejamos que esta se diluya.", "Añadimos 130 gramos de la harina y 20 gramos de azúcar y mezclamos bien durante unos minutos con un tenedor, hasta que se vuelva una masa pegajosa y homogénea", "Tapamos el bol con film transparente y dejamos que fermente durante 1 hora.", "En un bol grande incorporamos el prefermento, los huevos enteros, el resto del azúcar, la pizca de sal, el resto de harina, el agua y las ralladuras de limón y naranja", "Los únicos ingredientes que no añadimos son la mantequilla, las uvas pasas y las frutas escarchadas."]},{"nombre": "Preparación de la masa y amasado del Panettone clásico" , "pasos": ["Comenzamos el proceso de amasado, inicialmente dentro del bol y luego sobre una superficie de trabajo. No enharinéis ni engraséis la superficie, aunque al principio la masa se quede pegada a la mesa. Al final acabará despegándose por completo, os lo prometo.", "Comenzamos el proceso de amasado en el que estaremos unos 25 minutos. Con este tiempo habremos conseguido una masa elástica. En este momento añadimos la mantequilla cortada en cuadraditos. Vamos incorporándola poco a poco, y amasando entre cada incorporación.", "En este momento estaréis pensando que en menuda os habéis metido, que es imposible que semejante pasta se pueda llegar a convertir en una bola. No desesperéis, os prometo que habrá final feliz. A medida que vamos añadiendo trozos de mantequilla. La masa deja de tener consistencia elástica y se convierte casi en una papilla, sólo el amasado convertirá esta textura en la que queremos conseguir.", "Necesitamos, como mínimo otros 30 minutos para que la masa se convierta en algo brillante, y que se despegue por completo de la mesa de trabajo. La prueba de que la masa está lista es que si la estiramos, esta no se romperá. Podremos conseguir una sábana casi traslúcida sin que haya roturas. La textura será brillante y muy manejable."]},{"nombre": "Reposo de la masa del panettone, horneado y presentación final" , "pasos": ["Hacemos una bola con la masa y la colocamos dentro de un bol ligeramente enharinado. Tapamos el bol con un paño y lo dejamos fermentar durante 2 horas 30 minutos. En mi caso, para asegurarme una temperatura idónea. Lo dejo levar dentro del horno previamente calentado durante unos segundos, pero apagado, claro.", "La intención es conseguir un ambiente de unos 22º C a 25º C para que la masa trabaje en las mejores condiciones. Pasado este tiempo vemos que la masa ha crecido hasta triplicar su volumen.", "Rompemos las burbujas manipulándola y sobre una superficie de trabajo incorporamos las uvas pasas y las frutas escarchadas en trocitos. Yo las uvas las suelo dejar a remojo previamente para rehidratarlas y que estén más tiernas.", "Amasamos para integrar bien estos nuevos ingredientes y formamos una bola con la superficie bien lisa. Colocamos la bola en el molde de papel especial de panettone. Repetimos el proceso de levado durante 2 o 3 horas. El panettone habrá vuelto a crecer desbordándose del molde.", "Con mucho cuidado hacemos una cruz en la parte superior. Colocamos 4 nueces de mantequilla que le dará el tono dorado durante el horneado. Horneamos con el horno previamente caliente a 180º C durante 30 minutos mínimo. Ya sabéis que cada horno es un mundo y que pueden variar el tiempo de horneado, a más o menos tiempo.", "Debemos tener la precaución de tapar el panettone con papel de aluminio a los 10 minutos de cocción. Para evitar que se tueste demasiado.", "Retiramos del horno y dejamos que se enfríe sobre una rejilla. Es importante que una vez horneado el panettone, lo dejemos enfriar boca abajo. Para así evitar que se nos baje y conseguir una miga mucho mas esponjosa. Con un mínimo de 3 horas para que no baje."]}]}
+{
+    "Nombre_receta": "Panettone o pan dulce de Navidad",
+    "Dificultad": "Dificil",
+    "Tiempo_preparacion": "480 min",
+    "Raciones": "10 pers",
+    "Precio": "0.5 €/persona",
+    "Calorias_por_100g": "305kcal",
+    "Ingredientes": [
+        {
+            "Ingrediente": "leche entera",
+            "Cantidad": "100 g."
+        },
+        {
+            "Ingrediente": "levadura fresca de panadero",
+            "Cantidad": "30 g."
+        },
+        {
+            "Ingrediente": "huevos M",
+            "Cantidad": "3"
+        },
+        {
+            "Ingrediente": "harina de fuerza o harina 0000 (en Argentina)",
+            "Cantidad": "550 g."
+        },
+        {
+            "Ingrediente": "azucar",
+            "Cantidad": "120 g."
+        },
+        {
+            "Ingrediente": "sal",
+            "Cantidad": "media cdita. (3 gramos)"
+        },
+        {
+            "Ingrediente": "mantequilla en pomada",
+            "Cantidad": "160 g."
+        },
+        {
+            "Ingrediente": "agua",
+            "Cantidad": "80 ml."
+        },
+        {
+            "Ingrediente": "limon y naranja",
+            "Cantidad": "1 pieza de fruta ralladura"
+        },
+        {
+            "Ingrediente": "frutas escarchadas",
+            "Cantidad": "100 g."
+        },
+        {
+            "Ingrediente": "uvas pasas",
+            "Cantidad": "75 g."
+        },
+        {
+            "Ingrediente": "Molde especial para panettone",
+            "Cantidad": "1 molde"
+        }
+    ],
+    "Preparacion": [
+        {
+            "nombre": "Preparacion del prefermento o Poolish para la masa",
+            "pasos": [
+                "Empezamos con el prefermento o Poolish. En un bol pequeno mezclamos la leche templada, no caliente, con la levadura y dejamos que esta se diluya.",
+                "Anadimos 130 gramos de la harina y 20 gramos de azucar y mezclamos bien durante unos minutos con un tenedor, hasta que se vuelva una masa pegajosa y homogenea",
+                "Tapamos el bol con film transparente y dejamos que fermente durante 1 hora.",
+                "En un bol grande incorporamos el prefermento, los huevos enteros, el resto del azucar, la pizca de sal, el resto de harina, el agua y las ralladuras de limon y naranja",
+                "Los unicos ingredientes que no anadimos son la mantequilla, las uvas pasas y las frutas escarchadas."
+            ]
+        },
+        {
+            "nombre": "Preparacion de la masa y amasado del Panettone clasico",
+            "pasos": [
+                "Comenzamos el proceso de amasado, inicialmente dentro del bol y luego sobre una superficie de trabajo. No enharineis ni engraseis la superficie, aunque al principio la masa se quede pegada a la mesa. Al final acabara despegandose por completo, os lo prometo.",
+                "Comenzamos el proceso de amasado en el que estaremos unos 25 minutos. Con este tiempo habremos conseguido una masa elastica. En este momento anadimos la mantequilla cortada en cuadraditos. Vamos incorporandola poco a poco, y amasando entre cada incorporacion.",
+                "En este momento estareis pensando que en menuda os habeis metido, que es imposible que semejante pasta se pueda llegar a convertir en una bola. No desespereis, os prometo que habra final feliz. A medida que vamos anadiendo trozos de mantequilla. La masa deja de tener consistencia elastica y se convierte casi en una papilla, solo el amasado convertira esta textura en la que queremos conseguir.",
+                "Necesitamos, como minimo otros 30 minutos para que la masa se convierta en algo brillante, y que se despegue por completo de la mesa de trabajo. La prueba de que la masa esta lista es que si la estiramos, esta no se rompera. Podremos conseguir una sabana casi traslucida sin que haya roturas. La textura sera brillante y muy manejable."
+            ]
+        },
+        {
+            "nombre": "Reposo de la masa del panettone, horneado y presentacion final",
+            "pasos": [
+                "Hacemos una bola con la masa y la colocamos dentro de un bol ligeramente enharinado. Tapamos el bol con un pano y lo dejamos fermentar durante 2 horas 30 minutos. En mi caso, para asegurarme una temperatura idonea. Lo dejo levar dentro del horno previamente calentado durante unos segundos, pero apagado, claro.",
+                "La intencion es conseguir un ambiente de unos 22º C a 25º C para que la masa trabaje en las mejores condiciones. Pasado este tiempo vemos que la masa ha crecido hasta triplicar su volumen.",
+                "Rompemos las burbujas manipulandola y sobre una superficie de trabajo incorporamos las uvas pasas y las frutas escarchadas en trocitos. Yo las uvas las suelo dejar a remojo previamente para rehidratarlas y que esten mas tiernas.",
+                "Amasamos para integrar bien estos nuevos ingredientes y formamos una bola con la superficie bien lisa. Colocamos la bola en el molde de papel especial de panettone. Repetimos el proceso de levado durante 2 o 3 horas. El panettone habra vuelto a crecer desbordandose del molde.",
+                "Con mucho cuidado hacemos una cruz en la parte superior. Colocamos 4 nueces de mantequilla que le dara el tono dorado durante el horneado. Horneamos con el horno previamente caliente a 180º C durante 30 minutos minimo. Ya sabeis que cada horno es un mundo y que pueden variar el tiempo de horneado, a mas o menos tiempo.",
+                "Debemos tener la precaucion de tapar el panettone con papel de aluminio a los 10 minutos de coccion. Para evitar que se tueste demasiado.",
+                "Retiramos del horno y dejamos que se enfrie sobre una rejilla. Es importante que una vez horneado el panettone, lo dejemos enfriar boca abajo. Para asi evitar que se nos baje y conseguir una miga mucho mas esponjosa. Con un minimo de 3 horas para que no baje."
+            ]
+        }
+    ]
+}
