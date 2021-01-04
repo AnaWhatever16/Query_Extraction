@@ -19,22 +19,34 @@ clean = [stemmer.stem(token) for token in tokens
 
 print("tokens: ", clean)
 
-#Carga de los archivos json
-# f1 = open(os.getcwd() + "/Documentos/arbol_hojaldre.json")
-# f2 = open(os.getcwd() + "/Documentos/panettone.json")
-# data1 = json.load(f1)
-# data2 = json.load(f2)
 
-
-path = listdir(os.getcwd() + "/Documentos/")
+dirpath = os.listdir(os.getcwd() + "/Documentos/")
 query_receta = ""
 
+resultados = []
+
+
+for name_file in dirpath:
+    if name_file[:-5] in query: #El usuario busca datos específicos de una receta
+        print("EXITOOOOO")
+
+
+# Get matching substrings in string 
+"""   
 for doc in path:
     receta = open(doc)
     datos = json.load(receta)
+
     for token in clean:
-        if token == datos["id"]:
+    
+        #Se ha separado las preguntas en dos clases: el usuario busca el nombre de la receta,
+        #es decir, una id, no aparece, en cambio, si aparece una id, el usuario esta buscando datos
+        #especificos de una receta
+        
+        if token == datos["id"]: 
             query_receta = doc
+            
+        elif #el usuario busca el nombre de la receta
 
 for token in clean:
     if token == "dificil":
@@ -68,4 +80,4 @@ for token in clean:
 #Asumimos que si no aparece la id de ninguna de las recetas en la query se está preguntando por nombres de recetas
 if query_receta == "": 
     
-
+"""
