@@ -5,6 +5,18 @@ import nltk
 from nltk.tokenize import wordpunct_tokenize
 from nltk.stem import PorterStemmer
 
+###############
+#    FLAGS    #
+###############
+
+flag_receta_unica = False
+
+
+
+
+##################
+#    PROGRAMA    #
+##################
 
 #Obtener la pregunta por pantalla del usuario
 print("Porfavor introduzca la búsqueda: " )
@@ -24,29 +36,21 @@ dirpath = os.listdir(os.getcwd() + "/Documentos/")
 query_receta = ""
 
 resultados = []
-
+#Se ha separado las preguntas en dos clases: el usuario busca el nombre de la receta,
+#es decir, una id, no aparece, en cambio, si aparece una id, el usuario esta buscando datos
+#especificos de una receta
 
 for name_file in dirpath:
     if name_file[:-5] in query: #El usuario busca datos específicos de una receta
+        flag_receta_unica
         print("EXITOOOOO")
 
 
-# Get matching substrings in string 
-"""   
-for doc in path:
+#El usuario busca el nombre de una o varias receta/s porque ha dado datos
+
+
     receta = open(doc)
     datos = json.load(receta)
-
-    for token in clean:
-    
-        #Se ha separado las preguntas en dos clases: el usuario busca el nombre de la receta,
-        #es decir, una id, no aparece, en cambio, si aparece una id, el usuario esta buscando datos
-        #especificos de una receta
-        
-        if token == datos["id"]: 
-            query_receta = doc
-            
-        elif #el usuario busca el nombre de la receta
 
 for token in clean:
     if token == "dificil":
