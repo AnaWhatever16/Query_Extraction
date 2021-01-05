@@ -24,7 +24,7 @@ print("#################################")
 while(True):
     print("\n---------------------------------------------------------------------")
     #Obtener la pregunta por pantalla del usuario
-    print("Porfavor introduzca la búsqueda: " )
+    print("Porfavor introduzca la búsqueda (Ctrl + C para salir): " )
     query = input()
 
     #Tokenizacion y limpieza de la query
@@ -57,7 +57,26 @@ while(True):
             datos = open(os.getcwd() + "/Documentos/" + doc)
             receta = json.load(datos)
 
-            if ("minuto" in s_token or "min" in s_token) :
+            #### RACIONES ####
+            if("racion" in s_token or "plato" in s_token or "porcion" in s_token):
+                racion = 0
+                racion = [int(s) for s in s_token.split() if s.isdigit()]
+                if (racion):
+                    if ("meno" in s_token):
+                        if(receta["Raciones"] < racion[0]):
+                            print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
+                    elif ("ma" in s_token):
+                        if(receta["Raciones"] > racion[0]):
+                            print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
+                    else:
+                        if(receta["Raciones"] == racion[0]):
+                            print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
+                else:
+                    print("Por favor, si va a usar números no los escriba con letras.")
+                    break
+
+            #### TIEMPO DE PREPARACIÓN ####
+            elif ("minuto" in s_token or "min" in s_token) :
                 mins = 0
                 mins = [int(s) for s in s_token.split() if s.isdigit()]
                 if (mins):
@@ -73,7 +92,8 @@ while(True):
                 else:
                     print("Por favor, si va a usar números no los escriba con letras.")
                     break
-                
+            
+            #### DIFICULTAD ####
             elif ("facil" in s_token or "baja" in s_token):
                 if ("no" in s_token):
                     if (receta["Dificultad"] == "dificil"):
