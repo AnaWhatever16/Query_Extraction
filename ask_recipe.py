@@ -29,11 +29,11 @@ clean = [stemmer.stem(token) for token in tokens
                  if all(c.isalnum() for c in token)
                  ]
 
-print("tokens: ", clean)
+s_token = "".join([" "+i if not i.startswith("'") else i for i in clean]).strip()
 
+print("tokens: ", s_token)
 
 dirpath = os.listdir(os.getcwd() + "/Documentos/")
-query_receta = ""
 
 resultados = []
 #Se ha separado las preguntas en dos clases: el usuario busca el nombre de la receta,
@@ -42,46 +42,15 @@ resultados = []
 
 for name_file in dirpath:
     if name_file[:-5] in query: #El usuario busca datos específicos de una receta
-        flag_receta_unica
+        flag_receta_unica = True
         print("EXITOOOOO")
 
 
 #El usuario busca el nombre de una o varias receta/s porque ha dado datos
 
-
+if flag_receta_unica == False
+    if "facil"in s_token or "dificil"in s_token or "media"in s_token or "alta"in s_token or "baja"in s_token
+    
     receta = open(doc)
     datos = json.load(receta)
 
-for token in clean:
-    if token == "dificil":
-        
-    elif token == "facil":
-    elif token == "es" or token == "son":
-    elif token == "media":
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == "dificultad":
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-    elif token == :
-
-
-#Asumimos que si no aparece la id de ninguna de las recetas en la query se está preguntando por nombres de recetas
-if query_receta == "": 
-    
-"""
