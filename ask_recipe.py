@@ -25,7 +25,7 @@ print(" --> Nombres de receta segun sus caracteristicas (enumeradas abajo)")
 print(" --> Dificultad")
 print(" --> Tiempo de preparacion")
 print(" --> Raciones")
-print(" --> Coste por persona")
+print(" --> Coste por persona") # EXPLICAR TEMA PRECIOS
 print(" --> Calorias")
 print(" --> Ingredientes")
 print(" --> Preparacion (incluido los bloques de pasos)")
@@ -59,18 +59,44 @@ while(True):
     for name_file in dirpath:
         if name_file[:-5] in query: #El usuario busca datos especificos de una receta
             flag_receta_unica = True
+            datos = open(os.getcwd() + "/Documentos/" + name_file)
+            receta = json.load(datos)
+
+
+            #### TIEMPO DE PREPARACION ####
+            if ("tiempo" in s_token or "tarda" in s_token or "minuto" in s_token or "min" in s_token):
+                print("La receta " + receta["Nombre_receta"] + " tiene un tiempo de preparación de" + str(receta["Tiempo_preparacion"]) + " minutos")
+
+            #### PRECIO ####
+            elif ("cuesta" in s_token or "precio" in s_token or "dinero" in s_token):
+                print("La receta " + receta["Nombre_receta"] + " cuesta " + str(receta["Precio"]) +"€/persona")
+
+            #### DIFICULTAD ###
+            elif("dificultad" in s_token or "dificil" in s_token or "facil" in s_token):
+                print("La receta " + receta["Nombre_receta"] + " tiene dificultad " + receta["Dificultad"])
+            
+            #### RACIONES ####
+            elif ("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token):
+                print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Raciones"]) + " raciones")
+
+            #### CALORIAS ####
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
+                print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
+            
+
+            break
+
         
 
-
+####################################################################################################################################
     #El usuario busca el nombre de una o varias receta/s porque ha dado datos
     if flag_receta_unica == False:
         for doc in dirpath:
             datos = open(os.getcwd() + "/Documentos/" + doc)
             receta = json.load(datos)
 
-
             # PARA PREGUNTAS NUMERICAS #
-            if ("super" in s_token or "superen" in s_token):
+            if ("super" in s_token or "superen" in s_token or "superan" in s_token):
                 valor = [int(s) for s in s_token.split() if s.isdigit()]
                 if(valor):
                     if(valor[0]==0):
@@ -97,28 +123,28 @@ while(True):
                             if(receta["Raciones"] > valor[0]):
                                 print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
                     
-                    elif ("caloria" in s_token):
+                    elif ("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
                         if("no" in s_token):
                             if(receta["Calorias_por_100g"] <= valor[0]):
-                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "/100g")
+                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                         else:
                             if(receta["Calorias_por_100g"] > valor[0]):
-                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "/100g")
+                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                     
                     else:
                         print("Por favor, si va a usar numeros no los escriba con letras.")
                         break
             
             ### CALORIAS ###
-            elif("caloria" in s_token):
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
                 if (calorias):
                     if ("meno" in s_token or "menor" in s_token):
                         if(receta["Calorias_por_100g"] < calorias[0]):
-                            print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "/100g")
+                            print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                     elif ("ma" in s_token or "mayor" in s_token):
                         if(receta["Calorias_por_100g"] > calorias[0]):
-                            print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "/100g")
+                            print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                     else:
                         if(receta["Calorias_por_100g"] == calorias[0]):
                             print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "/100g")
