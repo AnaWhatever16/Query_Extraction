@@ -287,3 +287,9 @@ while(True):
             else:
                 print("La pregunta no se reconoce, vuelva a intentarlo")
                 break
+                
+            #### PREPARACION ####
+            #Puede preguntar por un numero de pasos en concreto
+            #### INGREDIENTES ####
+            #Puede preguntar por un ingrediente en concreto si si, o si no
+            #numero de ingredientes
