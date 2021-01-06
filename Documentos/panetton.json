@@ -16,7 +16,7 @@
             "Cantidad": "30 g."
         },
         {
-            "Ingrediente": "huevos M",
+            "Ingrediente": "huevo",
             "Cantidad": "3"
         },
         {
@@ -40,7 +40,11 @@
             "Cantidad": "80 ml."
         },
         {
-            "Ingrediente": "limon y naranja",
+            "Ingrediente": "limon",
+            "Cantidad": "1 pieza de fruta ralladura"
+        },
+        {
+            "Ingrediente": "naranja",
             "Cantidad": "1 pieza de fruta ralladura"
         },
         {

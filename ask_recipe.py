@@ -10,6 +10,7 @@ from nltk.stem import PorterStemmer
 ###############
 
 flag_receta_unica = False
+ingrediente_match_found = False
 
 ##################
 #    PROGRAMA    #
@@ -35,6 +36,9 @@ print("\nPresione ENTER despues de escribir su pregunta.")
 while(True):
     print("\n---------------------------------------------------------------------------------\n")
     #Obtener la pregunta por pantalla del usuario
+    ingrediente_match_found = False 
+    flag_receta_unica = False
+    
     print("Porfavor introduzca la busqueda (Ctrl + C para salir): " )
     query = input()
 
@@ -51,7 +55,6 @@ while(True):
 
     dirpath = os.listdir(os.getcwd() + "/Documentos/")
 
-    resultados = []
     #Se ha separado las preguntas en dos clases: el usuario busca el nombre de la receta,
     #es decir, una id, no aparece, en cambio, si aparece una id, el usuario esta buscando datos
     #especificos de una receta
@@ -83,7 +86,21 @@ while(True):
             elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
-
+            #### INGREDIENTES ####
+            else:
+                for i in range(len(receta['Ingredientes'])):
+                    if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
+                         ingrediente_match_found = True
+                         if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_tokenor "cuanta" in s_token):
+                             print("La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Cantidad'] + " de " + receta['Ingredientes'][i]['Ingrediente'])
+                         else:
+                             print("SI. La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Ingrediente'])
+                    elif("ingredient de" in s_token or "ingredient en" in s_token or "ingredient para" in s_token or "ingredient tien" in s_token or "ingredient contien" in s_token):
+                         ingrediente_match_found = True
+                         print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad'])   
+                if not (ingrediente_match_found):
+                    print("NO. La receta " + receta["Nombre_receta"] + " no contiene el ingrediente buscado")
+                 
             break
 
         
