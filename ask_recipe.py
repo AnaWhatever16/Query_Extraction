@@ -11,7 +11,25 @@ from nltk.stem import PorterStemmer
 
 flag_receta_unica = False
 ingrediente_match_found = False
+preparacion_match_found = False
 
+
+
+
+
+##############################
+#    FUNCIONES AUXILIARES    #
+##############################
+
+def check_number(s_token):
+    list_string = s_token.split()
+    pos = list_string.index("paso")
+    try: 
+        num = int(list_string[pos+1])
+        return True, num
+    except ValueError:
+        return False, -1
+        
 ##################
 #    PROGRAMA    #
 ##################
@@ -37,6 +55,7 @@ while(True):
     print("\n---------------------------------------------------------------------------------\n")
     #Obtener la pregunta por pantalla del usuario
     ingrediente_match_found = False 
+    preparacion_match_found = False
     flag_receta_unica = False
     
     print("Porfavor introduzca la busqueda (Ctrl + C para salir): " )
@@ -79,25 +98,53 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene dificultad " + receta["Dificultad"])
             
             #### RACIONES ####
-            elif ("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token):
+            elif ("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token or "comensal" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Raciones"]) + " raciones")
 
             #### CALORIAS ####
             elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
+            #### PREPARACION ####
+            
+            elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token):
+                if("cuanto" in s_token or "cuanta" in s_token or "numero" in s_token):
+                    preparacion_match_found = True
+                    print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Preparacion'])) + " pasos.")
+                    
+                elif("paso" in s_token or "metodo" in s_token):
+                    value, number = check_number(s_token)
+                    if(number in range(1,len(receta['Preparacion'])+1)):
+                        preparacion_match_found = True
+                        print("\nEl paso " + str(number) + " : " + receta['Preparacion'][number-1]['Nombre'] + "\n")
+                        for i in range(len(receta['Preparacion'][number-1]['Pasos'])):
+                            print(" - " + receta['Preparacion'][number-1]['Pasos'][i])
+                    elif(number != -1 and number not in range(1,len(receta['Preparacion'])+1)):
+                        print("No existe el paso " + str(number) + " para la receta " + receta["Nombre_receta"] +"...") 
+                        print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Preparacion'])) + " pasos.")
+                            
+                    elif (number == -1 and not preparacion_match_found):
+                        print("\n\nLos pasos completos para la receta " + receta["Nombre_receta"] + " son: \n")
+                        for p in range(len(receta['Preparacion'])):
+                            print("\nPaso " + str(p+1) + " : " + receta['Preparacion'][p]['Nombre'] + "\n")
+                            for i in range(len(receta['Preparacion'][p]['Pasos'])):
+                                print(" - " + receta['Preparacion'][p]['Pasos'][i])
+            
             #### INGREDIENTES ####
             else:
                 for i in range(len(receta['Ingredientes'])):
                     if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
                          ingrediente_match_found = True
-                         if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_tokenor "cuanta" in s_token):
+                         if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_tokenor or "cuanta" in s_token):
                              print("La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Cantidad'] + " de " + receta['Ingredientes'][i]['Ingrediente'])
                          else:
                              print("SI. La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Ingrediente'])
                     elif("ingredient de" in s_token or "ingredient en" in s_token or "ingredient para" in s_token or "ingredient tien" in s_token or "ingredient contien" in s_token):
                          ingrediente_match_found = True
-                         print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad'])   
+                         print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad'])
+                if("total ingrediente" or "cuanto ingrediente" in s_token):
+                    ingrediente_match_found = True
+                    print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Ingredientes'])) + " ingredientes.")  
                 if not (ingrediente_match_found):
                     print("NO. La receta " + receta["Nombre_receta"] + " no contiene el ingrediente buscado")
                  
