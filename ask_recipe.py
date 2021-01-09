@@ -2,6 +2,7 @@
 import os
 import json
 import nltk
+import unidecode
 from nltk.tokenize import wordpunct_tokenize
 from nltk.stem import PorterStemmer
 
@@ -60,7 +61,7 @@ while(True):
     
     print("Porfavor introduzca la busqueda (Ctrl + C para salir): " )
     query = input()
-
+    query = unidecode.unidecode(query)
     #Tokenizacion y limpieza de la query
     stemmer = PorterStemmer()
     tokens = wordpunct_tokenize(query)
