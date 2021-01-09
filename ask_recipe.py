@@ -147,7 +147,8 @@ while(True):
                     print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Ingredientes'])) + " ingredientes.") 
                 if("ingredient" in s_token):
                     ingrediente_match_found = True
-                    print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad']) 
+                    for i in range(len(receta['Ingredientes'])):
+                        print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad']) 
                 if not (ingrediente_match_found):
                     print("NO. La receta " + receta["Nombre_receta"] + " no contiene el ingrediente buscado")
                     
