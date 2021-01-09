@@ -71,7 +71,7 @@ while(True):
 
     s_token = "".join([" "+i if not i.startswith("'") else i for i in clean]).strip()
 
-    print("tokens: ", s_token)
+    #print("tokens: ", s_token)
 
     dirpath = os.listdir(os.getcwd() + "/Documentos/")
 
@@ -133,7 +133,13 @@ while(True):
             #### INGREDIENTES ####
             elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token or "con" in s_token or "sin" in s_token):
                 for i in range(len(receta['Ingredientes'])):
-                    if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
+
+                    ing_tokens = wordpunct_tokenize(receta['Ingredientes'][i]['Ingrediente'])
+                    ing_clean = [stemmer.stem(token) for token in ing_tokens
+                                if all(c.isalnum() for c in token)
+                                ]
+                    ing_string = "".join([" "+i if not i.startswith("'") else i for i in ing_clean]).strip()
+                    if(ing_string in s_token):
                          ingrediente_match_found = True
                          if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token):
                              print("La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Cantidad'] + " de " + receta['Ingredientes'][i]['Ingrediente'])
@@ -371,13 +377,23 @@ while(True):
                     
                 elif("no" in s_token or "sin" in s_token):
                     for i in range(len(receta['Ingredientes'])):
-                        if (receta['Ingredientes'][i]['Ingrediente'] in s_token):
+                        ing_tokens = wordpunct_tokenize(receta['Ingredientes'][i]['Ingrediente'])
+                        ing_clean = [stemmer.stem(token) for token in ing_tokens
+                                    if all(c.isalnum() for c in token)
+                                    ]
+                        ing_string = "".join([" "+i if not i.startswith("'") else i for i in ing_clean]).strip()
+                        if (ing_string in s_token):
                             ingrediente_match_found = True
                     if not (ingrediente_match_found):
                         print(receta["Nombre_receta"]  + " no contiene el ingrediente introducido.")   
                 else:
                     for j in range(len(receta['Ingredientes'])):
-                        if (receta['Ingredientes'][j]['Ingrediente'] in s_token):
+                        ing_tokens = wordpunct_tokenize(receta['Ingredientes'][j]['Ingrediente'])
+                        ing_clean = [stemmer.stem(token) for token in ing_tokens
+                                    if all(c.isalnum() for c in token)
+                                    ]
+                        ing_string = "".join([" "+i if not i.startswith("'") else i for i in ing_clean]).strip()
+                        if (ing_string in s_token):
                             print(receta["Nombre_receta"]  + " contiene " + receta['Ingredientes'][j]['Ingrediente'])         
             else:
                 print("La pregunta no se reconoce, vuelva a intentarlo")
