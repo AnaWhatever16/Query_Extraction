@@ -217,10 +217,10 @@ while(True):
                         break
             
             ### CALORIAS ###
-            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
                 
-                if("bajo" in s_token or "baja" in s_token):
+                if("bajo" in s_token or "baja" in s_token or "dieta" in s_token):
                     if(receta["Calorias_por_100g"] < 200):
                         print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                         
@@ -282,10 +282,10 @@ while(True):
             elif("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token or "comensal" in s_token):
                 racion = [int(s) for s in s_token.split() if s.isdigit()]
                 if (racion):
-                    if ("meno" in s_token or "menor" in s_token):
+                    if ("meno" in s_token or "menor" in s_token or "inferior" in s_token):
                         if(receta["Raciones"] < racion[0]):
                             print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]) )
-                    elif ("ma" in s_token or "mayor" in s_token):
+                    elif ("ma" in s_token or "mayor" in s_token or "superior" in s_token):
                         if(receta["Raciones"] > racion[0]):
                             print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]) )
                     else:
