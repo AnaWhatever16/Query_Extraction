@@ -217,7 +217,7 @@ while(True):
                         break
             
             ### CALORIAS ###
-            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token):
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
                 
                 if("bajo" in s_token or "baja" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
