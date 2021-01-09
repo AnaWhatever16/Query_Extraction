@@ -90,7 +90,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene un tiempo de preparación de" + str(receta["Tiempo_preparacion"]) + " minutos")
 
             #### PRECIO ####
-            elif ("cuesta" in s_token or "precio" in s_token or "dinero" in s_token):
+            elif ("cuesta" in s_token or "precio" in s_token or "dinero" in s_token or "euro" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " cuesta " + str(receta["Precio"]) +"€/persona")
 
             #### DIFICULTAD ###
@@ -380,16 +380,3 @@ while(True):
                 break        
             #Puede preguntar por un ingrediente en concreto si si, o si no
             #numero de ingredientes
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
