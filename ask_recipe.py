@@ -178,7 +178,7 @@ while(True):
             datos = open(os.getcwd() + "/Documentos/" + doc)
             receta = json.load(datos)
 
-            # PARA PREGUNTAS NUMERICAS #
+            """# PARA PREGUNTAS NUMERICAS #
             if ("super" in s_token or "superen" in s_token or "superan" in s_token):
                 valor = [int(s) for s in s_token.split() if s.isdigit()]
                 if(valor):
@@ -215,9 +215,9 @@ while(True):
                     else:
                         print("Por favor, si va a usar numeros no los escriba con letras.")
                         break
-            
+            """
             ### CALORIAS ###
-            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
+            if("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
                 
                 if("bajo" in s_token or "baja" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
@@ -229,10 +229,10 @@ while(True):
                         print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                 
                 elif (calorias):
-                    if ("meno" in s_token or "menor" in s_token):
+                    if ("meno" in s_token or "menor" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
                         if(receta["Calorias_por_100g"] < calorias[0]):
                             print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
-                    elif ("ma" in s_token or "mayor" in s_token):
+                    elif ("ma" in s_token or "mayor" in s_token or "super" in s_token or "superen" in s_token or "superan" in s_token):
                         if(receta["Calorias_por_100g"] > calorias[0]):
                             print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                     else:
@@ -246,16 +246,17 @@ while(True):
             #### PRECIO ####
             elif("coste" in s_token or "precio" in s_token or "valor" in s_token or "cuesten" in s_token or "cuestan" in s_token or "euro" in s_token):
                 euros = [int(s) for s in s_token.split() if s.isdigit()]
+                f_euros = float("".join([" "+str(i) for i in euros]).strip())
                 if (euros):
-                    if ("meno" in s_token or "inferior" in s_token):
-                        if(receta["Precio"] < euros[1]*0.1):
-                            print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
-                    elif ("ma" in s_token or "superior" in s_token):
-                        if(receta["Precio"] > euros[1]*0.1):
-                            print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
+                    if ("meno" in s_token or "inferior" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
+                        if(receta["Precio"]*float(receta["Raciones"]) < f_euros):
+                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
+                    elif ("ma" in s_token or "superior" in s_token or "super" in s_token or "superen" in s_token or "superan" in s_token):
+                        if(receta["Precio"]*float(receta["Raciones"]) > f_euros):
+                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
                     else:
-                        if(receta["Precio"] == euros[1]*0.1):
-                            print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
+                        if(receta["Precio"]*float(receta["Raciones"]) == f_euros):
+                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
                 else:
                     print("Por favor, si va a usar numeros no los escriba con letras.")
                     break
@@ -282,10 +283,10 @@ while(True):
             elif("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token or "comensal" in s_token):
                 racion = [int(s) for s in s_token.split() if s.isdigit()]
                 if (racion):
-                    if ("meno" in s_token or "menor" in s_token or "inferior" in s_token):
+                    if ("meno" in s_token or "menor" in s_token or "inferior" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
                         if(receta["Raciones"] < racion[0]):
                             print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]) )
-                    elif ("ma" in s_token or "mayor" in s_token or "superior" in s_token):
+                    elif ("ma" in s_token or "mayor" in s_token or "superior" in s_token or "super" in s_token or "superen" in s_token or "superan" in s_token):
                         if(receta["Raciones"] > racion[0]):
                             print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]) )
                     else:
@@ -299,10 +300,10 @@ while(True):
             elif ("minuto" in s_token or "min" in s_token):
                 mins = [int(s) for s in s_token.split() if s.isdigit()]
                 if (mins):
-                    if ("meno" in s_token or "inferior" in s_token):
+                    if ("meno" in s_token or "inferior" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
                         if(receta["Tiempo_preparacion"] < mins[0]):
                             print(receta["Nombre_receta"] + " | Tiempo: " + str(receta["Tiempo_preparacion"]) + " minutos")
-                    elif ("ma" in s_token or "superior" in s_token):
+                    elif ("ma" in s_token or "superior" in s_token or "super" in s_token or "superen" in s_token or "superan" in s_token):
                         if(receta["Tiempo_preparacion"] > mins[0]):
                             print(receta["Nombre_receta"]  + " | Tiempo: " + str(receta["Tiempo_preparacion"]) + " minutos")
                     else: 
