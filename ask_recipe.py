@@ -151,9 +151,21 @@ while(True):
                     print("NO. La receta " + receta["Nombre_receta"] + " no contiene el ingrediente buscado")
                     
             else:
-                print("La pregunta no se reconoce, vuelva a intentarlo")
-                break
-                 
+                print("La receta completa de " + receta["Nombre_receta"] + "es: \n")
+                print("Dificultad: " + receta["Dificultad"])
+                print("Tiempo de preparacion: " + str(receta["Tiempo_preparacion"]))
+                print("Raciones: " + str(receta["Raciones"]))
+                print("Precio por persona: " + str(receta["Precio"]))
+                print("Calorias por 100g: " + str(receta["Calorias_por_100g"]))
+                print("\nIngredientes: \n")
+                for i in range(len(receta["Ingredientes"])):
+                    print("- " + receta["Ingredientes"][i]["Cantidad"] + "  " + receta["Ingredientes"][i]["Ingrediente"])
+                print("\nPreparacion: \n")
+                for p in range(len(receta["Preparacion"])):
+                    print("\nPaso " + str(p+1) + " : " + receta['Preparacion'][p]['Nombre'] + "\n")
+                    for j in range(len(receta['Preparacion'][p]['Pasos'])):
+                        print(" - " + receta['Preparacion'][p]['Pasos'][j])
+
             break
 
         
@@ -338,15 +350,34 @@ while(True):
                     break
 
             #### INGREDIENTES ####
-            """elif ("tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza"):
-                if("no" in s_token):
+            elif ("tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token or "contenga" in s_token or "sin" in s_token or "con" in s_token):
+                num_ingredientes = [int(s) for s in s_token.split() if s.isdigit()]                      
+                if (num_ingredientes):
+                    if ("meno" in s_token or "inferior" in s_token):
+                        if(len(receta["Ingredientes"]) < num_ingredientes[0]):
+                            print(receta["Nombre_receta"] + " tiene menos de " + str(num_ingredientes[0]) + " ingredientes")
+
+                    elif ("ma" in s_token or "superior" in s_token):
+                        if(len(receta["Ingredientes"]) > num_ingredientes[0]):
+                            print(receta["Nombre_receta"] + " tiene mas de " + str(num_ingredientes[0]) + " ingredientes")
+
+                    else: 
+                        if(len(receta["Ingredientes"]) == num_ingredientes[0]):
+                            print(receta["Nombre_receta"] + " tiene " + str(num_ingredientes[0]) + " ingredientes")
                     
-                num_ingred = [int(s) for s in s_token.split() if s.isdigit()]
-                if(num_ingred):
-             """  
-                         """else:
+                elif("no" in s_token or "sin" in s_token):
+                    for i in range(len(receta['Ingredientes'])):
+                        if (receta['Ingredientes'][i]['Ingrediente'] in s_token):
+                            ingrediente_match_found = True
+                    if not (ingrediente_match_found):
+                        print(receta["Nombre_receta"]  + " no contiene el ingrediente introducido.")   
+                else:
+                    for j in range(len(receta['Ingredientes'])):
+                        if (receta['Ingredientes'][j]['Ingrediente'] in s_token):
+                            print(receta["Nombre_receta"]  + " contiene " + receta['Ingredientes'][j]['Ingrediente'])         
+            else:
                 print("La pregunta no se reconoce, vuelva a intentarlo")
-                break"""        
+                break        
             #Puede preguntar por un ingrediente en concreto si si, o si no
             #numero de ingredientes
             
