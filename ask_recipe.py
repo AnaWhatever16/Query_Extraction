@@ -103,7 +103,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Raciones"]) + " raciones")
 
             #### CALORIAS ####
-            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "engorda" in s_token):
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "engorda" in s_token or "regimen" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
             #### PREPARACION ####
@@ -218,10 +218,10 @@ while(True):
                         break
             """
             ### CALORIAS ###
-            if("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
+            if("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "regimen" in s_token or "no engorden" in s_token or "no engorde" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
                 
-                if("bajo" in s_token or "baja" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token):
+                if("bajo" in s_token or "baja" in s_token or "dieta" in s_token or "no engorden" in s_token or "no engorde" in s_token or "regimen" in s_token):
                     if(receta["Calorias_por_100g"] < 200):
                         print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
                         
