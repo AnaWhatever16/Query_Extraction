@@ -185,44 +185,7 @@ while(True):
             datos = open(os.getcwd() + "/Documentos/" + doc)
             receta = json.load(datos)
 
-            """# PARA PREGUNTAS NUMERICAS #
-            if ("super" in s_token or "superen" in s_token or "superan" in s_token):
-                valor = [int(s) for s in s_token.split() if s.isdigit()]
-                if(valor):
-                    if(valor[0]==0):
-                        if("no" in s_token):   
-                            if(receta["Precio"] <= valor[1]*0.1):
-                                print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
-                        else:
-                            if(receta["Precio"] > valor[1]*0.1):
-                                print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
-                    elif ("minuto" in s_token or "min" in s_token):
-                        if("no" in s_token):
-                            if(receta["Tiempo_preparacion"] <= valor[0]):
-                                print(receta["Nombre_receta"] + " | Tiempo: " + str(receta["Tiempo_preparacion"]) + "minutos")
-                        else:
-                            if(receta["Tiempo_preparacion"] > valor[0]):
-                                print(receta["Nombre_receta"] + " | Tiempo: " + str(receta["Tiempo_preparacion"]) + "minutos")
-                    
-                    elif ("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token):
-                        if("no" in s_token):
-                            if(receta["Raciones"] <= valor[0]):
-                                print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
-                        else:
-                            if(receta["Raciones"] > valor[0]):
-                                print(receta["Nombre_receta"] + " | Raciones: " + str(receta["Raciones"]))
-                    
-                    elif ("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
-                        if("no" in s_token):
-                            if(receta["Calorias_por_100g"] <= valor[0]):
-                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
-                        else:
-                            if(receta["Calorias_por_100g"] > valor[0]):
-                                print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
-                    else:
-                        print("Por favor, si va a usar numeros no los escriba con letras.")
-                        break
-            """
+
             ### CALORIAS ###
             if("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token or "regimen" in s_token or "no engorden" in s_token or "no engorde" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
