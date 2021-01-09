@@ -131,7 +131,7 @@ while(True):
                                 print(" - " + receta['Preparacion'][p]['Pasos'][i])
             
             #### INGREDIENTES ####
-            elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token):
+            elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token or "con" in s_token or "sin" in s_token):
                 for i in range(len(receta['Ingredientes'])):
                     if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
                          ingrediente_match_found = True
