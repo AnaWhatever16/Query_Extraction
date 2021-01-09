@@ -94,7 +94,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " cuesta " + str(receta["Precio"]) +"€/persona")
 
             #### DIFICULTAD ###
-            elif("dificultad" in s_token or "dificil" in s_token or "facil" in s_token):
+            elif("dificultad" in s_token or "dificil" in s_token or "facil" in s_token or "sencilla" in s_token or "simpl" in s_token or "compleja" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene dificultad " + receta["Dificultad"])
             
             #### RACIONES ####
@@ -106,7 +106,6 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
             #### PREPARACION ####
-            
             elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token):
                 if("cuanto" in s_token or "cuanta" in s_token or "numero" in s_token):
                     preparacion_match_found = True
@@ -131,22 +130,29 @@ while(True):
                                 print(" - " + receta['Preparacion'][p]['Pasos'][i])
             
             #### INGREDIENTES ####
-            else:
+            elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token):
                 for i in range(len(receta['Ingredientes'])):
                     if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
                          ingrediente_match_found = True
-                         if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_tokenor or "cuanta" in s_token):
+                         if("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token):
                              print("La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Cantidad'] + " de " + receta['Ingredientes'][i]['Ingrediente'])
                          else:
                              print("SI. La receta " + receta["Nombre_receta"] + " contiene " + receta['Ingredientes'][i]['Ingrediente'])
                     elif("ingredient de" in s_token or "ingredient en" in s_token or "ingredient para" in s_token or "ingredient tien" in s_token or "ingredient contien" in s_token):
                          ingrediente_match_found = True
                          print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad'])
-                if("total ingrediente" or "cuanto ingrediente" in s_token):
+                if("total ingredient" in s_token or "cuanto ingredient" in s_token):
                     ingrediente_match_found = True
-                    print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Ingredientes'])) + " ingredientes.")  
+                    print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Ingredientes'])) + " ingredientes.") 
+                if("ingredient" in s_token):
+                    ingrediente_match_found = True
+                    print(receta['Ingredientes'][i]['Ingrediente'] + " : " + receta['Ingredientes'][i]['Cantidad']) 
                 if not (ingrediente_match_found):
                     print("NO. La receta " + receta["Nombre_receta"] + " no contiene el ingrediente buscado")
+                    
+            else:
+                print("La pregunta no se reconoce, vuelva a intentarlo")
+                break
                  
             break
 
@@ -170,7 +176,6 @@ while(True):
                         else:
                             if(receta["Precio"] > valor[1]*0.1):
                                 print(receta["Nombre_receta"] + " | Precio: " + str(receta["Precio"]) + "€/persona")
-                    
                     elif ("minuto" in s_token or "min" in s_token):
                         if("no" in s_token):
                             if(receta["Tiempo_preparacion"] <= valor[0]):
@@ -194,7 +199,6 @@ while(True):
                         else:
                             if(receta["Calorias_por_100g"] > valor[0]):
                                 print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
-                    
                     else:
                         print("Por favor, si va a usar numeros no los escriba con letras.")
                         break
@@ -202,7 +206,16 @@ while(True):
             ### CALORIAS ###
             elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
                 calorias = [int(s) for s in s_token.split() if s.isdigit()]
-                if (calorias):
+                
+                if("bajo" in s_token or "baja" in s_token):
+                    if(receta["Calorias_por_100g"] < 200):
+                        print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
+                        
+                elif("alto" in s_token or "alta" in s_token):
+                    if(receta["Calorias_por_100g"] > 200):
+                        print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
+                
+                elif (calorias):
                     if ("meno" in s_token or "menor" in s_token):
                         if(receta["Calorias_por_100g"] < calorias[0]):
                             print(receta["Nombre_receta"] + " | Calorias: " + str(receta["Calorias_por_100g"]) + "kcal/100g")
@@ -218,7 +231,7 @@ while(True):
 
 
             #### PRECIO ####
-            elif("coste" in s_token or "precio" in s_token or "valor" in s_token or "cuesten" in s_token or "cuestan" in s_token):
+            elif("coste" in s_token or "precio" in s_token or "valor" in s_token or "cuesten" in s_token or "cuestan" in s_token or "euro" in s_token):
                 euros = [int(s) for s in s_token.split() if s.isdigit()]
                 if (euros):
                     if ("meno" in s_token or "inferior" in s_token):
@@ -233,9 +246,27 @@ while(True):
                 else:
                     print("Por favor, si va a usar numeros no los escriba con letras.")
                     break
-
+            
+            elif("barato" in s_token or "barata" in s_token):
+                value = receta["Precio"]*receta["Raciones"]
+                if ("no" in s_token):
+                    if(value > 10):
+                        print(receta["Nombre_receta"] + " |  Precio: " + str(receta["Precio"]) + "€/persona")
+                else:
+                    if(value < 10):
+                        print(receta["Nombre_receta"] + " |  Precio: " + str(receta["Precio"]) + "€/persona")
+                    
+            elif("caro" in s_token or "cara" in s_token):
+                value = receta["Precio"]*receta["Raciones"]
+                if ("no" in s_token):
+                    if(value < 10):
+                        print(receta["Nombre_receta"] + " |  Precio: " + str(receta["Precio"]) + "€/persona")
+                else:
+                    if(value > 10):
+                        print(receta["Nombre_receta"] + " |  Precio: " + str(receta["Precio"]) + "€/persona")
+                            
             #### RACIONES ####
-            elif("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token):
+            elif("racion" in s_token or "plato" in s_token or "porcion" in s_token or "persona" in s_token or "comensal" in s_token):
                 racion = [int(s) for s in s_token.split() if s.isdigit()]
                 if (racion):
                     if ("meno" in s_token or "menor" in s_token):
@@ -252,7 +283,7 @@ while(True):
                     break
 
             #### TIEMPO DE PREPARACION ####
-            elif ("minuto" in s_token or "min" in s_token) :
+            elif ("minuto" in s_token or "min" in s_token):
                 mins = [int(s) for s in s_token.split() if s.isdigit()]
                 if (mins):
                     if ("meno" in s_token or "inferior" in s_token):
@@ -267,9 +298,13 @@ while(True):
                 else:
                     print("Por favor, si va a usar numeros no los escriba con letras.")
                     break
+                    
+            elif ("rapida" in s_token):
+                if(receta["Tiempo_preparacion"] < 20):
+                    print("La receta " + receta["Nombre_receta"] + " tarda " + str(receta["Tiempo_preparacion"]) + " minutos")
             
             #### DIFICULTAD ####
-            elif ("facil" in s_token or "baja" in s_token):
+            elif ("facil" in s_token or "baja" in s_token or "sencilla" in s_token or"simpl" in s_token):
                 if ("no" in s_token):
                     if (receta["Dificultad"] == "dificil"):
                         print(receta["Nombre_receta"] + " |  Dificultad: " + receta["Dificultad"])
@@ -277,19 +312,53 @@ while(True):
                     if (receta["Dificultad"] == "facil"):
                         print(receta["Nombre_receta"] + " |  Dificultad: " + receta["Dificultad"])
 
-            elif ("dificil" in s_token or "alta" in s_token):
+            elif ("dificil" in s_token or "alta" in s_token or "compleja" in s_token):
                 if ("no" in s_token):
                     if (receta["Dificultad"] == "facil"):
-                        print(receta["Nombre_receta"] + "Dificultad: " + receta["Dificultad"])
+                        print(receta["Nombre_receta"] + " | Dificultad: " + receta["Dificultad"])
                 else:
                     if (receta["Dificultad"] == "dificil"):
                         print(receta["Nombre_receta"] + " |  Dificultad: " + receta["Dificultad"])
-            else:
-                print("La pregunta no se reconoce, vuelva a intentarlo")
-                break
                 
             #### PREPARACION ####
-            #Puede preguntar por un numero de pasos en concreto
+            elif ("paso" in s_token or "procedimiento" in s_token or "metodo" in s_token):
+                mins = [int(s) for s in s_token.split() if s.isdigit()]
+                if (mins):
+                    if ("meno" in s_token or "inferior" in s_token):
+                        if(len(receta["Preparacion"]) < mins[0]):
+                            print(receta["Nombre_receta"] + " | Pasos: " + str(len(receta["Preparacion"])) + " pasos")
+                    elif ("ma" in s_token or "superior" in s_token):
+                        if(len(receta["Preparacion"]) > mins[0]):
+                            print(receta["Nombre_receta"]  + " | Pasos: " + str(len(receta["Preparacion"])) + " pasos")
+                    else: 
+                        if(len(receta["Preparacion"]) == mins[0]):
+                            print(receta["Nombre_receta"]  + " | Pasos: " + str(len(receta["Preparacion"])) + " pasos")
+                else:
+                    print("Por favor, si va a usar numeros no los escriba con letras.")
+                    break
+
             #### INGREDIENTES ####
+            """elif ("tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza"):
+                if("no" in s_token):
+                    
+                num_ingred = [int(s) for s in s_token.split() if s.isdigit()]
+                if(num_ingred):
+             """  
+                         """else:
+                print("La pregunta no se reconoce, vuelva a intentarlo")
+                break"""        
             #Puede preguntar por un ingrediente en concreto si si, o si no
             #numero de ingredientes
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
