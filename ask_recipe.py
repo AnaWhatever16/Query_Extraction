@@ -107,7 +107,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
             #### PREPARACION ####
-            elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token):
+            elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token or "preparacion" in s_token or "prepara" in s_token):
                 if("cuanto" in s_token or "cuanta" in s_token or "numero" in s_token):
                     preparacion_match_found = True
                     print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Preparacion'])) + " pasos.")
@@ -131,7 +131,7 @@ while(True):
                                 print(" - " + receta['Preparacion'][p]['Pasos'][i])
             
             #### INGREDIENTES ####
-            elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token):
+            elif("cantidad" in s_token or "numero" in s_token or "gramo" in s_token or "litro" in s_token or "cuanto" in s_token or "cuanta" in s_token or "ingredient" in s_token or "tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token):
                 for i in range(len(receta['Ingredientes'])):
                     if(receta['Ingredientes'][i]['Ingrediente'] in s_token):
                          ingrediente_match_found = True
@@ -334,7 +334,7 @@ while(True):
                         print(receta["Nombre_receta"] + " |  Dificultad: " + receta["Dificultad"])
                 
             #### PREPARACION ####
-            elif ("paso" in s_token or "procedimiento" in s_token or "metodo" in s_token):
+            elif ("paso" in s_token or "procedimiento" in s_token or "metodo" in s_token or "preparacion" in s_token or "prepara" in s_token or "preparan" in s_token or "prepar" in s_token or "preparen" in s_token or "preparar" in s_token):
                 mins = [int(s) for s in s_token.split() if s.isdigit()]
                 if (mins):
                     if ("meno" in s_token or "inferior" in s_token):
@@ -351,7 +351,7 @@ while(True):
                     break
 
             #### INGREDIENTES ####
-            elif ("tien" in s_token or "contien" in s_token or "lleva" in s_token or "usa" in s_token or "utiliza" in s_token or "contenga" in s_token or "sin" in s_token or "con" in s_token):
+            elif ("tien" in s_token or "tienen" in s_token or "contien" in s_token or "contienen" in s_token or "lleva" in s_token or "llevan" in s_token or "usa" in s_token or "usan" in s_token or "utiliza" in s_token or "utilizan" in s_token or "contenga" in s_token or "contengan" in s_token or "sin" in s_token or "con" in s_token):
                 num_ingredientes = [int(s) for s in s_token.split() if s.isdigit()]                      
                 if (num_ingredientes):
                     if ("meno" in s_token or "inferior" in s_token):
