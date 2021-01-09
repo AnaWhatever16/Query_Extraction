@@ -103,7 +103,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Raciones"]) + " raciones")
 
             #### CALORIAS ####
-            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token):
+            elif("caloria" in s_token or "kcal" in s_token or "kilocaloria" in s_token or "cal" in s_token or "dieta" in s_token):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
             #### PREPARACION ####
