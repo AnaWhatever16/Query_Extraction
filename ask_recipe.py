@@ -246,7 +246,8 @@ while(True):
             #### PRECIO ####
             elif("coste" in s_token or "precio" in s_token or "valor" in s_token or "cuesten" in s_token or "cuestan" in s_token or "euro" in s_token):
                 euros = [int(s) for s in s_token.split() if s.isdigit()]
-                f_euros = float("".join([" "+str(i) for i in euros]).strip())
+                if len(euros): euros.append(0)
+                f_euros = float("" + str(euros[0]) + "." + str(euros[1]))
                 if (euros):
                     if ("meno" in s_token or "inferior" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
                         if(receta["Precio"]*float(receta["Raciones"]) < f_euros):
