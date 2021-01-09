@@ -107,7 +107,7 @@ while(True):
                 print("La receta " + receta["Nombre_receta"] + " tiene cantidad para " + str(receta["Calorias_por_100g"]) + " kcal/100g")
             
             #### PREPARACION ####
-            elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token or "preparacion" in s_token or "prepara" in s_token):
+            elif("paso" in s_token or "procedimiento" in s_token or "como" in s_token or "metodo" in s_token or "preparacion" in s_token or "prepara" in s_token or "preparar" in s_token):
                 if("cuanto" in s_token or "cuanta" in s_token or "numero" in s_token):
                     preparacion_match_found = True
                     print("La receta " + receta["Nombre_receta"] + " tiene un total de " + str(len(receta['Preparacion'])) + " pasos.")
