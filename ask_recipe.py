@@ -251,13 +251,13 @@ while(True):
                 if (euros):
                     if ("meno" in s_token or "inferior" in s_token or "no super" in s_token or "no superen" in s_token or "no superan" in s_token):
                         if(receta["Precio"]*float(receta["Raciones"]) < f_euros):
-                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
+                            print(receta["Nombre_receta"] + " | Precio total: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
                     elif ("ma" in s_token or "superior" in s_token or "super" in s_token or "superen" in s_token or "superan" in s_token):
                         if(receta["Precio"]*float(receta["Raciones"]) > f_euros):
-                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
+                            print(receta["Nombre_receta"] + " | Precio total: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
                     else:
                         if(receta["Precio"]*float(receta["Raciones"]) == f_euros):
-                            print(receta["Nombre_receta"] + " | Precio total: Precio: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
+                            print(receta["Nombre_receta"] + " | Precio total: " + str(float(receta["Precio"])*float(receta["Raciones"])) + "€  | Precio por persona: " + str(receta["Precio"]) + "€/persona")
                 else:
                     print("Por favor, si va a usar numeros no los escriba con letras.")
                     break
